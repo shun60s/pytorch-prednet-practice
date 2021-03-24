@@ -39,7 +39,7 @@ Lower side last 3 images are extrapolated.
 Regarding to [original prednet code](https://github.com/coxlab/prednet) license, please see License_prednet.txt.  
 Regarding to [kitti dataset](http://www.cvlibs.net/datasets/kitti/) license, please refer to [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License](https://creativecommons.org/licenses/by-nc-sa/3.0/).  
 Regarding to hickle.py, please see LICENSE_hickle.  
-Regarding to hard_sigmoid , please see see LICENSE_torchMoji.  
+Regarding to hard_sigmoid , please see LICENSE_torchMoji.  
 There is no license description of leido/pytorch-prednet and Kaixhin/lstms.py.  
 Some code has benn changed and follow following,   
   
