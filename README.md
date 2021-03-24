@@ -27,9 +27,11 @@ prednet_colab_prectice1.ipynb is a sample notebook to run on google colaboratory
 
 ## data test result 
 
-Up side is actual and low side is predicted.  
+Upper side is actual and lower side is predicted.  
 
 ![figure2](docs/origin_vs_predicted_0-small.png)  
+
+Lower side last 3 images are extrapolated.  
 ![figure3](docs/origin_vs_predicted_0-extrap_start7-small.png)  
 
 ## License  
