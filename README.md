@@ -8,6 +8,7 @@ and preprocessed KITTI data.
 - image format, from integer 0-255 to float 0-1.0  
 - train data, sequence_start_mode from unique to all  
 - ConvLSTMCell, sigmoid to hard_sigmoid  
+- train learning rate, 0.001/0.0001 switch to use lr_scheduler  
 - test data, last one to sequence  
 - to add log output   
 - to add cpu for function check. Actual train needs GPU.  
@@ -23,7 +24,7 @@ This result does not reach to 0.0178 (training) 0.0236(validation), which other 
   
   
 
-prednet_colab_prectice1.ipynb is a sample notebook to run train and test on google colaboratory.  
+prednet_colab_practice.ipynb is a sample notebook of train and test using google colaboratory.  
 
 ## data test result 
 
