@@ -9,7 +9,7 @@ and preprocessed KITTI data.
 - train data, sequence_start_mode from unique to all  
 - ConvLSTMCell, sigmoid to hard_sigmoid  
 - train learning rate, 0.001/0.0001 switch to use lr_scheduler  
-- test data, last one to sequence  
+- test data, last one to sequence, and to add extrapolated   
 - to add log output   
 - to add cpu for function check. Actual train needs GPU.  
 - to add option load-last to resume train.  
