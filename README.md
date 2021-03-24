@@ -23,7 +23,7 @@ This result does not reach to 0.0178 (training) 0.0236(validation), which other 
   
   
 
-prednet_colab_prectice1.ipynb is a sample notebook to run on google colaboratory with google drive.  
+prednet_colab_prectice1.ipynb is a sample notebook to run train and test on google colaboratory.  
 
 ## data test result 
 
