@@ -1,0 +1,17 @@
+/__pycahe__/
+/old/
+/logs/
+/trained/
+/results/
+/kitti_data/
+*.bat
+*.pyc
+*.md~
+*.py~
+*.*~
+
+
+
+
+
+
