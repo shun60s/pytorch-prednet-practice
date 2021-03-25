@@ -36,7 +36,12 @@ parser.add_argument(
     '--et',
     type=int,
     default=-1,
-    help='extrap_start_time (default:-1 means off)')
+    help='extrap_start_time < num of time steps  (default:-1 means off)')
+parser.add_argument(
+    '--num_output',
+    type=int,
+    default=-1,
+    help='num of output save file (default: -1 means all)')
 
 args = parser.parse_args()
 
@@ -65,7 +70,17 @@ if args.gpu_id >= 0 and torch.cuda.is_available():
     print(' Using GPU.')
     model.cuda()
 
+# output save file number
+if not (args.gpu_id >= 0):
+    # When cpu, only two times
+    num_output= 2
+    print ('WARNING: num_output is force to 2')
+else:
+    num_output= args.num_output
+
+# output save file counter
 c0=0
+
 for i, inputs in enumerate(test_loader):
     #
     with torch.no_grad():  # without save parameters, only forward
@@ -110,11 +125,11 @@ for i, inputs in enumerate(test_loader):
             print ('save to ', save_file_name)
             c0 +=1
             
-            # When cpu, only two times
-            if not (args.gpu_id >= 0) and c0 >= 2:
+            # output save file number
+            if num_output >0 and c0 >= num_output:
                 break
-        
-    # When cpu, only two times
-    if not (args.gpu_id >= 0) and c0 >= 2:
+            
+    # output save file number
+    if num_output >0 and c0 >= num_output:
         break
 

@@ -42,7 +42,7 @@ parser.add_argument(
     '--load-last',
     default=False,
     metavar='LL',
-    help='load model dict and optimizer dict.')
+    help='load model dict and optimizer dict if resume train. Use --last_epoch at same time.')
 parser.add_argument(
     '--env',
     default='prednet',
@@ -64,7 +64,11 @@ parser.add_argument(
     type=int,
     default=10,
     help='num of time steps (default: 10)')
-
+parser.add_argument(
+    '--epoch',
+    type=int,
+    default=150,
+    help='num of time epoch (default: 150)')
 
 
 
@@ -93,7 +97,7 @@ for k in d_args.keys():
     log['{}_log'.format(args.env)].info('{0}: {1}'.format(k, d_args[k]))
 
 
-num_epochs = 150
+num_epochs = args.epoch #  (default:150)
 samples_per_epoch = 500  # 100
 N_seq_val = 100  # number of sequences to use for validation
 nt = args.nt # num of time steps
@@ -154,14 +158,14 @@ if args.gpu_id >= 0 and torch.cuda.is_available():
     model.cuda()
 
 optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
-lr_maker  = lr_scheduler.StepLR(optimizer = optimizer, step_size = 30, gamma = 0.5, last_epoch=args.last_epoch)  # adjust it!
-
-
 
 if args.load_last:
     saved_state = torch.load( os.path.join(TRAIN_DIR, 'training-last-opt.pt'), map_location=lambda storage, loc: storage)
     optimizer.load_state_dict(saved_state)
     print ('+load training-last-opt.pt')
+    lr_maker  = lr_scheduler.StepLR(optimizer = optimizer, step_size = 30, gamma = 0.5, last_epoch=args.last_epoch)  # adjust it!
+else:
+    lr_maker  = lr_scheduler.StepLR(optimizer = optimizer, step_size = 30, gamma = 0.5)  # adjust it!
 
 
 
