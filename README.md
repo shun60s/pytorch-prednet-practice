@@ -23,8 +23,7 @@ This result does not reach to 0.0178 (training) 0.0236(validation), which other 
 ![figure1](docs/preprocessed_KITTI_loss.png)  
   
   
-
-prednet_colab_practice.ipynb is a sample notebook of train and test using google colaboratory.  
+[prednet_kitti_data_colab_practice1.ipynb](https://colab.research.google.com/github/shun60s/pytorch-prednet-practice/blob/master/prednet_kitti_data_colab_practice1.ipynb) is a sample notebook of train and test using google colaboratory.  
 
 ## data test result 
 

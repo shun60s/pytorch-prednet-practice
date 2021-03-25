@@ -38,7 +38,7 @@ parser.add_argument(
     default=-1,
     help='extrap_start_time < num of time steps  (default:-1 means off)')
 parser.add_argument(
-    '--num_output',
+    '--num-output',
     type=int,
     default=-1,
     help='num of output save file (default: -1 means all)')
