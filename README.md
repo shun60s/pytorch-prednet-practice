@@ -12,7 +12,7 @@ and preprocessed KITTI data.
 - test data, last one to sequence, and to add extrapolated   
 - to add log output   
 - to add cpu for function check. Actual train needs GPU.  
-- to add option load-last to resume train.  
+- to add option load-last and last-epoch to resume train.  
 
 
 ## data train loss
