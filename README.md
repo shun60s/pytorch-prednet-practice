@@ -13,6 +13,7 @@ and preprocessed KITTI data.
 - to add log output   
 - to add cpu for function check. Actual train needs GPU.  
 - to add option load-last and last-epoch to resume train.  
+- to add preprocess_data.py that make a dataset from mp4 files  
 
 
 ## data train loss

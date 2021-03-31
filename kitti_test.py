@@ -42,15 +42,29 @@ parser.add_argument(
     type=int,
     default=-1,
     help='num of output save file (default: -1 means all)')
+parser.add_argument(
+    '--data-dir',
+    default='kitti_data',
+    metavar='DD',
+    help='data dir')
+parser.add_argument(
+    '--grayscale',
+    default=False,
+    metavar='GS',
+    help='use grayscale data')
 
 args = parser.parse_args()
 
 batch_size = 4 # 2
 nt = args.nt # num of time steps
-A_channels = (3, 48, 96, 192)
-R_channels = (3, 48, 96, 192)
+if args.grayscale:  # grayscale 1 channel
+    A_channels = (1, 24, 48, 96)
+    R_channels = (1, 24, 48, 96)
+else:  # RGB 3 channels
+    A_channels = (3, 48, 96, 192)
+    R_channels = (3, 48, 96, 192)
 
-DATA_DIR = 'kitti_data'
+DATA_DIR = args.data_dir  #'kitti_data'
 TRAIN_DIR = 'trained'
 RESULTS_DIR = 'results'
 

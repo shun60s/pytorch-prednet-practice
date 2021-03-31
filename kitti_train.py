@@ -69,9 +69,16 @@ parser.add_argument(
     type=int,
     default=150,
     help='num of time epoch (default: 150)')
-
-
-
+parser.add_argument(
+    '--data-dir',
+    default='kitti_data',
+    metavar='DD',
+    help='data dir')
+parser.add_argument(
+    '--grayscale',
+    default=False,
+    metavar='GS',
+    help='use grayscale data')
 
 args = parser.parse_args()
 torch.manual_seed(args.seed)
@@ -105,9 +112,13 @@ batch_size = 4 #16  If batch is 16, memory over 8G
 
 # これが　下から　RGB３チャンネル　４８チャンネル　９６チャンネル　１９２チャネルの４層の定義かな
 # conv の kernelは　すべて３で固定みたい
-A_channels = (3, 48, 96, 192)
-R_channels = (3, 48, 96, 192)
 
+if args.grayscale:  # grayscale 1 channel
+    A_channels = (1, 24, 48, 96)
+    R_channels = (1, 24, 48, 96)
+else:  # RGB 3 channels
+    A_channels = (3, 48, 96, 192)
+    R_channels = (3, 48, 96, 192)
 
 
 if args.gpu_id >= 0:
@@ -123,7 +134,7 @@ else:
     time_loss_weights[0] = 0
     time_loss_weights = Variable(time_loss_weights) #.cuda())
 
-DATA_DIR = 'kitti_data'
+DATA_DIR = args.data_dir  #'kitti_data'
 TRAIN_DIR = 'trained'
 
 train_file = os.path.join(DATA_DIR, 'X_train.hkl')
